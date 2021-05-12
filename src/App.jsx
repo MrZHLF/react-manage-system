@@ -1,11 +1,19 @@
+import React, { Component,Fragment } from 'react';
 import './App.scss';
-import { Button } from 'antd';
-function App () {
-  return (
-    <div className="App">
-      <Button type="primary">Button</Button>
-    </div>
-  );
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Login from './views/login/Login'
+class App extends Component {
+  render() {
+    return (
+      <Fragment>
+        <BrowserRouter>
+          <Switch>
+            <Route exact render={()=> <Login/>} path="/login" />
+          </Switch>
+        </BrowserRouter>
+      </Fragment>
+    );
+  }
 }
 
 export default App;
