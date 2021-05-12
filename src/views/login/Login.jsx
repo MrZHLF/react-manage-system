@@ -62,7 +62,6 @@ class Login extends Component {
                   placeholder="请输入密码"
                 />
               </Form.Item>
-
               <Form.Item>
                 <Button
                   type="primary"
