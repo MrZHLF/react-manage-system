@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import styles from './index.module.scss'
 
 import Header from './components/Header/Header'
+import Aside from './components/Aside/Aside'
+import { MainRoutes } from './../../App'
 import { Layout } from 'antd'
 const { Sider, Content } = Layout
 
@@ -30,13 +32,17 @@ class Index extends Component {
     return (
       <div className={styles.main}>
         <Layout className={styles.mainContent}>
-          <Sider collapsed={this.state.collapsed}>1111</Sider>
+          <Sider collapsed={this.state.collapsed}>
+            <Aside collapsed={this.state.collapsed} />
+          </Sider>
           <Layout>
             <Header
               collapsed={this.state.collapsed}
               toggle={this.toggleCollapsed}
             />
-            <Content className={styles.mainRight}>1111</Content>
+            <Content className={styles.mainRight}>
+              <MainRoutes />
+            </Content>
           </Layout>
         </Layout>
       </div>
