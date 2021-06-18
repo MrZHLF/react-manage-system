@@ -19,9 +19,10 @@ class Aside extends Component {
   }
   componentDidMount() {
     // 菜单状态
+    console.log(this.props.location,'this.props.location');
     const pathname = this.props.location.pathname ?  this.props.location.pathname : ""
     const menukey = pathname.split('/').slice(0, 3).join('/')
-
+    console.log(pathname,menukey,'menukey');
     const menuHigh = {
       selectedKeys: pathname,
       openKeys: menukey,

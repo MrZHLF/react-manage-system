@@ -118,7 +118,7 @@ class Header extends Component {
         break
       case '1':
         localStorage.removeItem('ms_username')
-        this.props.history.push('/login')
+        this.props.history.push('/')
         break
       default:
         return

@@ -1,5 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+import { setTokenAction } from './../../store/action/Login'
+ 
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, UnlockOutlined } from '@ant-design/icons'
 import styles from './index.module.scss'
@@ -22,9 +27,11 @@ class Login extends Component {
       this.setState({
         loading: false,
       })
-      this.props.history.push('/main')
-      localStorage.setItem('ms_username','zhou')
-    }, 2000)
+      localStorage.setItem('ms_username', 'zhou')
+      let name = 'sfamjklfhnajiknionfkolasnsfkoanfafafcaf'
+      this.props.actions.setToken(name)
+      this.props.history.push('/main/dashboard')
+    }, 1000)
   }
 
   render() {
@@ -84,4 +91,16 @@ class Login extends Component {
   }
 }
 
-export default withRouter(Login)
+const mapDispatchToProps = (dispatch,) => {
+  return {
+    actions: bindActionCreators({
+      setToken:setTokenAction,
+    },dispatch)
+  }
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(withRouter(Login))
+  
