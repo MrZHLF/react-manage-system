@@ -1,12 +1,14 @@
+import {  HomeOutlined } from '@ant-design/icons';
+
 const Router = [
   {
     title: '首页',
-    icon: 'laptop',
+    icon: <HomeOutlined />,
     key: '/main/dashboard',
   },
   {
     title: '表单列表',
-    icon: 'laptop',
+    icon: '',
     key: '/main/forms', // 菜单
     children: [
       {
@@ -20,6 +22,11 @@ const Router = [
         icon: '',
       },
     ],
+  },
+  {
+    title: '表格',
+    icon: '',
+    key: '/main/table',
   },
 ]
 

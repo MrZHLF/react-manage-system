@@ -7,6 +7,8 @@ import {
   CompressOutlined,
 } from '@ant-design/icons'
 import styles from './index.module.scss'
+import logo from '@/assets/img/20190722123705.png'
+
 
 class Header extends Component {
   constructor(props) {
@@ -43,7 +45,7 @@ class Header extends Component {
             {/* 用户头像 */}
             <img
               className={styles.userAvator}
-              src={require('../../../../assets/img/20190722123705.png')}
+              src={logo}
             />
             {/* 用户名下拉菜单 */}
             <Dropdown

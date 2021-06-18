@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-
 import Router from '@/router/index'
 import styles from './index.module.scss'
 import logo from '@/assets/img/20190722123705.png'
+
 import { Menu } from 'antd'
 const { SubMenu } = Menu
 
@@ -59,9 +59,9 @@ class Aside extends Component {
     })
   }
   // 处理一级菜单
-  renderMenu = ({ title, key }) => {
+  renderMenu = ({ title, key,icon }) => {
     return (
-      <Menu.Item key={key}>
+      <Menu.Item key={key} icon={icon ? icon : ''}>
         <Link to={key}>
           <span>{title}</span>
         </Link>
@@ -69,9 +69,9 @@ class Aside extends Component {
     )
   }
   // 处理子级菜单 判断是否有children 通过递归的方式
-  renderSubMnenu = ({ title, key, children }) => {
+  renderSubMnenu = ({ title, key, children,icon }) => {
     return (
-      <SubMenu key={key} title={title}>
+      <SubMenu key={key} title={title} icon={icon ? icon : ''}>
         {children &&
           children.map((item) => {
             return item.children && this.children.length > 0

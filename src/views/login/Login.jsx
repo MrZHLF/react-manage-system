@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import { withRouter } from 'react-router-dom'
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, UnlockOutlined } from '@ant-design/icons'
 import styles from './index.module.scss'
@@ -21,6 +22,8 @@ class Login extends Component {
       this.setState({
         loading: false,
       })
+      this.props.history.push('/main')
+      localStorage.setItem('ms_username','zhou')
     }, 2000)
   }
 
@@ -81,4 +84,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default withRouter(Login)

@@ -1,14 +1,12 @@
 import React, { Suspense,lazy } from 'react'
 import './App.scss'
 import { HashRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
-
-
 const Login = lazy(() => import('@views/Login/Login.jsx'));
 const Main = lazy(() => import('@views/Main/Index.jsx'));
 const Dashboard = lazy(() => import('@views/Dashboard/Index.jsx'));
 const BasicsForm = lazy(() => import('@views/Forms/BasicsForm.jsx'));
 const SeniorForm = lazy(() => import('@views/Forms/SeniorForm.jsx'));
-
+const TableList = lazy(() => import('@views/Tables/Index.jsx'));
 export const AppRoutes = () => {
 	return (
 		<Router>
@@ -32,6 +30,7 @@ export const MainRoutes = () => {
 				<Route exact path="/main/dashboard" component={Dashboard} />
 				<Route exact path="/main/forms/basicsForm" component={BasicsForm} />
 				<Route exact path="/main/forms/seniorForm" component={SeniorForm} />
+				<Route exact path="/main/table" component={TableList} />
 			</Switch>
 		</Suspense>
 	);
