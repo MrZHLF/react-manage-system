@@ -1,7 +1,10 @@
 import { userToken } from '../Type'
+import { getToken } from '@utils/cookies'
+
+console.log(getToken(),'getToken()');
 
 const login = {
-  token: ""
+  token: localStorage.getItem('ms_username') ? localStorage.getItem('ms_username') : ''
 }
 
 const loginReducer = function (state = login, action) {

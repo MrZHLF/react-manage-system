@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { setTokenAction } from './../../store/action/Login'
- 
+ import { setToken } from '@utils/cookies' 
 import { Form, Input, Button } from 'antd'
 import { UserOutlined, UnlockOutlined } from '@ant-design/icons'
 import styles from './index.module.scss'
@@ -27,8 +27,8 @@ class Login extends Component {
       this.setState({
         loading: false,
       })
-      localStorage.setItem('ms_username', 'zhou')
       let name = 'sfamjklfhnajiknionfkolasnsfkoanfafafcaf'
+      setToken(name)
       this.props.actions.setToken(name)
       this.props.history.push('/main/dashboard')
     }, 1000)

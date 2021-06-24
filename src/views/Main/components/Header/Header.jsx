@@ -14,7 +14,7 @@ class Header extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      username: localStorage.getItem('ms_username') || 'Admin',
+      username: 'Admin',
       fullscreen: false,
       collapsed: false,
       collapsed: props.collapsed,

@@ -2,10 +2,6 @@ import React, { Suspense,lazy } from 'react'
 import './App.scss'
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
-import Store from './store'
-import { Provider } from 'react-redux'
-
-
 const Login = lazy(() => import('@views/Login/Login.jsx'));
 const Main = lazy(() => import('@views/Main/Index.jsx'));
 const Dashboard = lazy(() => import('@views/Dashboard/Index.jsx'));
@@ -14,7 +10,6 @@ const SeniorForm = lazy(() => import('@views/Forms/SeniorForm.jsx'));
 const TableList = lazy(() => import('@views/Tables/Index.jsx'));
 export const AppRoutes = () => {
 	return (
-		<Provider store={Store}>
 			<Router>
 				<Suspense fallback={<div></div>}>
 					<Switch>
@@ -24,14 +19,10 @@ export const AppRoutes = () => {
 					</Switch>
 				</Suspense>
 			</Router>
-		</Provider>
 	);
 };
-
-
 export const MainRoutes = () => {
 	return (
-		<Provider store={Store}>
 			<Suspense fallback={<div></div>}>
 				<Switch>
 					<Redirect exact from="/main" to="/main/dashboard" />
@@ -41,7 +32,6 @@ export const MainRoutes = () => {
 					<Route exact path="/main/table" component={TableList} />
 				</Switch>
 				</Suspense>
-		</Provider>
 	);
 };
 
