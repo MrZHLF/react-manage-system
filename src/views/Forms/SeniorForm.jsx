@@ -1,10 +1,11 @@
 import React, { Component,Fragment } from 'react'
 
+
 import FormCom from '../../components/Form'
 class seniorForm extends Component {
   constructor(props) {
     super(props)
-
+    
     this.state = {
       formLayout: {
         labelCol: { span: 2 },
@@ -75,9 +76,7 @@ class seniorForm extends Component {
           name: "select",
           required:true,
           placeholder: "请选择一项列表",
-          style: {
-            width: '200px'
-          },
+          style: {width: '200px'},
           mode:"multiple", //是否设置多选
           options: [
             { label: "Lucy", value: 'lucy' },
@@ -87,7 +86,7 @@ class seniorForm extends Component {
         },
         {
           type:"TimePicker",
-          label: '下拉选择',
+          label: '时间选择',
           name: "time",
           required: true,
           value: "",

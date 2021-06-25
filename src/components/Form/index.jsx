@@ -18,7 +18,8 @@ class FormCom extends Component {
         "Radio": "请选择",
         "Switch": "请选择",
         "Select": "请选择",
-        "Checkbox":"请选择"
+        "Checkbox": "请选择",
+        "TimePicker":"请选择"
       }
     }
     this.formRef = React.createRef()
@@ -65,7 +66,7 @@ class FormCom extends Component {
     const rules = this.rules(item)
     return (
       <Form.Item label={item.label} name={item.name} rules={rules} key={item.name}>
-        <Radio.Group defaultValue={ item.defaultValue } value={item.defaultValue} >
+        <Radio.Group value={item.defaultValue} >
           {
             item.options && item.options.map(elem => {
               return <Radio checked={true} key={elem.value} value={elem.value}>{ elem.label }</Radio>
@@ -115,7 +116,7 @@ class FormCom extends Component {
     // 时间选择器
     const rules = this.rules(item)
     return (
-      <Form.Item label={item.label} name={item.name} key={item.name}>
+      <Form.Item label={item.label} name={item.name} key={item.name} rules={rules}>
         <TimePicker value={item.value} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} style={item.style}/>
       </Form.Item>
     )

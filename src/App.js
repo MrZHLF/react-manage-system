@@ -7,7 +7,9 @@ const Main = lazy(() => import('@views/Main/Index.jsx'));
 const Dashboard = lazy(() => import('@views/Dashboard/Index.jsx'));
 const BasicsForm = lazy(() => import('@views/Forms/BasicsForm.jsx'));
 const SeniorForm = lazy(() => import('@views/Forms/SeniorForm.jsx'));
-const TableList = lazy(() => import('@views/Tables/Index.jsx'));
+const BasicsTables = lazy(() => import('@views/Tables/BasicsTables'));
+const SeniorTables = lazy(() => import('@views/Tables/SeniorTables'));
+
 export const AppRoutes = () => {
 	return (
 			<Router>
@@ -21,6 +23,7 @@ export const AppRoutes = () => {
 			</Router>
 	);
 };
+
 export const MainRoutes = () => {
 	return (
 			<Suspense fallback={<div></div>}>
@@ -29,9 +32,10 @@ export const MainRoutes = () => {
 					<Route exact path="/main/dashboard" component={Dashboard} />
 					<Route exact path="/main/forms/basicsForm" component={BasicsForm} />
 					<Route exact path="/main/forms/seniorForm" component={SeniorForm} />
-					<Route exact path="/main/table" component={TableList} />
+					<Route exact path="/main/table/basicsTables" component={BasicsTables} />
+					<Route exact path="/main/table/seniorTables" component={SeniorTables} />
 				</Switch>
-				</Suspense>
+			</Suspense>
 	);
 };
 

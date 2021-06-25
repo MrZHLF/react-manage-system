@@ -1,4 +1,4 @@
-import {  HomeOutlined } from '@ant-design/icons';
+import {  HomeOutlined, TableOutlined,ContainerOutlined } from '@ant-design/icons';
 
 const Router = [
   {
@@ -8,7 +8,7 @@ const Router = [
   },
   {
     title: '表单列表',
-    icon: '',
+    icon: <ContainerOutlined />,
     key: '/main/forms', // 菜单
     children: [
       {
@@ -25,8 +25,20 @@ const Router = [
   },
   {
     title: '表格',
-    icon: '',
+    icon: <TableOutlined />,
     key: '/main/table',
+    children: [
+      {
+        key: '/main/table/basicsTables',
+        title: '基础表格',
+        icon: '',
+      },
+      {
+        key: '/main/table/seniorTables',
+        title: '封装表格',
+        icon: '',
+      },
+    ],
   },
 ]
 
