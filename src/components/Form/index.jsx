@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 
-import { Form, Input, Button , InputNumber, Radio,Select, Switch  } from 'antd'
+import moment from 'moment'
+
+import { Form, Input, Button , InputNumber, Radio,Select, Switch,Checkbox,TimePicker  } from 'antd'
 const { Option } = Select;
+
 
 class FormCom extends Component {
   constructor(props) {
@@ -15,6 +18,7 @@ class FormCom extends Component {
         "Radio": "请选择",
         "Switch": "请选择",
         "Select": "请选择",
+        "Checkbox":"请选择"
       }
     }
     this.formRef = React.createRef()
@@ -72,6 +76,16 @@ class FormCom extends Component {
     )
   }
 
+  checkboxElem = (item) => {
+    // 处理多选
+    const rules = this.rules(item)
+    return (
+      <Form.Item label={item.label} name={item.name} rules={rules} key={item.key}>
+        <Checkbox.Group options={item.options}  />
+      </Form.Item>
+    )
+  }
+
   selectElem = (item) => {
     // 处理下拉选择框
     const rules = this.rules(item)
@@ -97,6 +111,16 @@ class FormCom extends Component {
     )
   }
 
+  timePickerElem = (item) => {
+    // 时间选择器
+    const rules = this.rules(item)
+    return (
+      <Form.Item label={item.label} name={item.name} key={item.name}>
+        <TimePicker value={item.value} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} style={item.style}/>
+      </Form.Item>
+    )
+  }
+
 
   // 初始化
   initFormItem = () => {
@@ -111,7 +135,9 @@ class FormCom extends Component {
       if (item.type === 'NumberInput') { formList.push(this.inputNumberElem(item)) }
       if (item.type === 'Radio') { formList.push(this.radioElem(item)) }
       if (item.type === 'Select') { formList.push(this.selectElem(item)) }
-      if (item.type === 'Switch') {formList.push(this.switchElem(item))}
+      if (item.type === 'Switch') { formList.push(this.switchElem(item)) }
+      if (item.type === 'Checkbox') { formList.push(this.checkboxElem(item)) }
+      if (item.type === 'TimePicker') {formList.push(this.timePickerElem(item)) }
     })
     return formList
   }

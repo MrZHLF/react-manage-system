@@ -54,8 +54,24 @@ class seniorForm extends Component {
           ]
         },
         {
-          type:"Select",
+          type:"Checkbox",
           label: '多选',
+          name: "check",
+          required:true,
+          defaultValue:1,
+          placeholder: "请选择一项",
+          style: {width: '200px'},
+          options: [
+            { label: "红色", value: "red" },
+            { label: "蓝色", value: "blue" },
+            { label: "黑色", value: "black" },
+            { label: "黄色", value: "yellow" },
+            { label: "橘色", value: "origin" },
+          ]
+        },
+        {
+          type:"Select",
+          label: '下拉选择',
           name: "select",
           required:true,
           placeholder: "请选择一项列表",
@@ -70,10 +86,16 @@ class seniorForm extends Component {
           ]
         },
         {
-          type:"Switch",
-          label: '开关',
-          name: "switch"
-        },
+          type:"TimePicker",
+          label: '下拉选择',
+          name: "time",
+          required: true,
+          value: "",
+          style: {
+            width: '200px'
+          },
+          placeholder: "请选择时间",
+        }
       ]
     }
   }
